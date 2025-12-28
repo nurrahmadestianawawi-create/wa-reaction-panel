@@ -52,19 +52,24 @@
   </div>
 
   <script>
-    const btn = document.getElementById("btn");
-    const status = document.getElementById("status");
+const btn = document.getElementById("btn");
+const status = document.getElementById("status");
 
-    btn.addEventListener("click", () => {
-      const link = document.getElementById("link").value;
-      const emoji = document.getElementById("emoji").value;
+btn.addEventListener("click", () => {
+  const link = document.getElementById("link").value.trim();
+  const emoji = document.getElementById("emoji").value.trim();
 
-      if (!link || !emoji) {
-        status.innerText = "❌ Lengkapi link dan emoji";
-      } else {
-        status.innerText = "✅ TOMBOL BERFUNGSI 🔥";
-      }
-    });
+  if (!link || !emoji) {
+    status.innerText = "❌ Lengkapi link dan emoji";
+    return;
+  }
+
+  // Buka WhatsApp Web / WA di HP dengan pesan
+  const waUrl = `https://wa.me/${link}?text=${encodeURIComponent(emoji)}`;
+  window.open(waUrl, "_blank");
+
+  status.innerText = "✅ WhatsApp terbuka, siap kirim";
+});
   </script>
 
 </body>
