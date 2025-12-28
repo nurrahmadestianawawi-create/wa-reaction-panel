@@ -41,8 +41,29 @@
     <input placeholder="Link chat / saluran WA">
     <input placeholder="Emoji reaksi (🔥 ❤️ 😂)">
 
-    <button type="button" onclick="send()">Kirim Reaction</button>
+    <button type="button" id="btn">Kirim Reaction</button>
   </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("btn");
+  const status = document.getElementById("status");
 
+  if (!btn) {
+    alert("Tombol tidak ditemukan");
+    return;
+  }
+
+  btn.addEventListener("click", function () {
+    const link = document.getElementById("link").value;
+    const emoji = document.getElementById("emoji").value;
+
+    if (!link || !emoji) {
+      status.innerText = "❌ Lengkapi link dan emoji";
+    } else {
+      status.innerText = "✅ Tombol HIDUP, data kebaca";
+    }
+  });
+});
+  </script>
 </body>
       </html>
