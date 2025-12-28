@@ -24,12 +24,17 @@
       margin-top: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 16px;
     }
     button {
       background: #2563eb;
       color: white;
       border: none;
       font-weight: bold;
+    }
+    #status {
+      margin-top: 10px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -38,32 +43,29 @@
   <div class="card">
     <h2>WA Reaction Panel 🔥</h2>
 
-    <input placeholder="Link chat / saluran WA">
-    <input placeholder="Emoji reaksi (🔥 ❤️ 😂)">
+    <input id="link" placeholder="Link chat / saluran WA">
+    <input id="emoji" placeholder="Emoji reaksi (🔥 ❤️ 😂)">
 
     <button type="button" id="btn">Kirim Reaction</button>
+
+    <p id="status"></p>
   </div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("btn");
-  const status = document.getElementById("status");
 
-  if (!btn) {
-    alert("Tombol tidak ditemukan");
-    return;
-  }
+  <script>
+    const btn = document.getElementById("btn");
+    const status = document.getElementById("status");
 
-  btn.addEventListener("click", function () {
-    const link = document.getElementById("link").value;
-    const emoji = document.getElementById("emoji").value;
+    btn.addEventListener("click", () => {
+      const link = document.getElementById("link").value;
+      const emoji = document.getElementById("emoji").value;
 
-    if (!link || !emoji) {
-      status.innerText = "❌ Lengkapi link dan emoji";
-    } else {
-      status.innerText = "✅ Tombol HIDUP, data kebaca";
-    }
-  });
-});
+      if (!link || !emoji) {
+        status.innerText = "❌ Lengkapi link dan emoji";
+      } else {
+        status.innerText = "✅ TOMBOL BERFUNGSI 🔥";
+      }
+    });
   </script>
+
 </body>
-      </html>
+</html>
